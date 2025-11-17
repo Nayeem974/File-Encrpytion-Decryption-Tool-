@@ -6,11 +6,14 @@ The script takes two commands: ‘enc’ for encryption and ‘dec’ for decryp
 
 Tools Used:
 	•	Bash for scripting
-	•	OpenSSL for encryption & decryption
-	•	PBKDF2 for secure password-based key      derivation
+	•	OpenSSL for encryption & 
+	    decryption
+	•	PBKDF2 for secure password-based 
+	    key derivation
 
 Security Features:
-	•	AES-256 industry standard encryption
+	•	AES-256 industry standard  
+	    encryption
 	•	Salt-based password hashing
 	•	PBKDF2 key stretching
 	•	No password stored anywhere
