@@ -10,7 +10,7 @@
 4. Encrypt a File:
     run: ./file_crypto.sh enc secret.sh
 
-.  Enter passphrase:
+.  Enter passphrase: AES-256-CBC
 
 . Then you will see:
        Encrypted -> secret.sh.enc
@@ -18,7 +18,7 @@
 5.  Decrypt the File:
       run: ./file_crypto.sh dec secret.sh.enc
 
-  . Enter passphrase:
+  . Enter passphrase: AES-256-CBC
 
   .Then you will see:
         Decrypted -> secret.sh.dec
