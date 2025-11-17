@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+# file_crypto.sh
+
+# Usage: ./file_crypto.sh enc file_to_encrypt
+
+#        ./file_crypto.sh dec file_to_decrypt
+
+CMD=$1
+
+FILE=$2
+
+if [[ -z "$CMD" || -z "$FILE" ]]; then
+
+  echo "Usage: $0 enc|dec filename"
+
+  exit 1
+
+fi
+
+if [[ "$CMD" == "enc" ]]; then
+
+  out="${FILE}.enc"
+
+  read -s -p "Enter passphrase: " pass; echo
+
+  openssl enc -aes-256-cbc -salt -pbkdf2 -in "$FILE" -out "$out" -k "$pass"
+
+  echo "Encrypted -> $out"
+
+elif [[ "$CMD" == "dec" ]]; then
+
+  out="${FILE%.enc}.dec"
+
+  read -s -p "Enter passphrase: " pass; echo
+
+  openssl enc -d -aes-256-cbc -pbkdf2 -in "$FILE" -out "$out" -k "$pass"
+
+  echo "Decrypted -> $out"
+
+else
+
+  echo "Unknown command: $CMD"
+
+  exit 1
+
+fi
+
